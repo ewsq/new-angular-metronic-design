@@ -4,10 +4,10 @@ module.exports = {
             style: 'compressed'
         },
         files: {
-            'backend/node/public/css/bootstrap.css': 'frontend/sass/bootstrap.scss',
-            'backend/node/public/css/component.css': 'frontend/sass/metronic/components.scss',
-            'backend/node/public/css/plugins.css': 'frontend/sass/metronic/plugins.scss',
-            'backend/node/public/css/login.css': 'frontend/sass/metronic/pages/login-3.scss'
+            './../node/public/stylesheets/bootstrap.css': './sass/bootstrap.scss',
+            './../node/public/stylesheets/component.css': './sass/metronic/components.scss',
+            './../node/public/stylesheets/plugins.css': './sass/metronic/plugins.scss',
+            './../node/public/stylesheets/login.css': './sass/metronic/pages/login-3.scss'
         }
     }
 };

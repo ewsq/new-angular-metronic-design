@@ -4,8 +4,8 @@ module.exports = {
             {
                 expand: true,
                 flatten: true,
-                src: ['frontend/html/**'],
-                dest: 'backend/node/public/html/',
+                src: ['./html/**'],
+                dest: './../node/public/html/',
                 filter: 'isFile'
             },
         ],
@@ -14,30 +14,30 @@ module.exports = {
         files: [
             {
                 expand: true,
-                cwd: 'frontend/bower/',
+                cwd: './bower/',
                 src: ['**/*.js'],
-                dest: 'backend/node/public/app/vendor/',
+                dest: './../node/public/app/vendor/',
                 filter: 'isFile'
             },
             {
                 expand: true,
-                cwd: 'frontend/bower/',
+                cwd: './bower/',
                 src: ['**/*.woff2','**/*.woff','**/*.ttf'],
-                dest: 'backend/node/public/fonts/',
+                dest: './../node/public/fonts/',
                 filter: 'isFile'
             },
             {
                 expand: true,
-                cwd: 'frontend/img/',
+                cwd: './img/',
                 src: ['**/*.*'],
-                dest: 'backend/node/public/img/',
+                dest: './../node/public/img/',
                 filter: 'isFile'
             },
             {
                 expand: true,
-                cwd: 'frontend/angular/',
+                cwd: './app/',
                 src: ['**/*.config.js'],
-                dest: 'backend/node/public/',
+                dest: './../node/public/',
                 filter: 'isFile'
             }
         ]
