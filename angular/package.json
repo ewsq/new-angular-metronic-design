@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "npm run dev:backend && npm run dev:frontend && npm run dev:php",
-    "dev:work": "npm run dev:watch & npm run dev:serv",
-    "dev:backend": "npm i && npm update && cd backend/node/ && npm i && npm update && cd ../../",
-    "dev:frontend": "cd frontend/ && sudo npm install -g bower && sudo npm update -g bower && bower install && bower update && cd ../",
-    "dev:php": "cd backend/php/ && composer install  && composer update && cd ../../",
-    "dev:watch": "grunt babel:app & grunt copy:public --force & grunt copy:html & grunt watch:app & grunt watch:html",
-    "dev:serv": "cd backend/node/ && npm start && cd ../../"
+    "dev": "npm run dev:build && npm run dev:watch",
+    "dev:build": "npm install -g bower && npm update -g bower && npm i && npm update && bower install --allow-root && bower update --allow-root",
+    "dev:watch": "grunt babel:app & grunt copy:public --force & grunt copy:html & grunt watch:app & grunt watch:html"
   },
   "dependencies": {},
   "devDependencies": {

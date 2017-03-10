@@ -8,9 +8,9 @@ module.exports = {
         files: [
             {
                 expand: true,
-                cwd: './frontend/angular/',
+                cwd: './app/',
                 src: '**/*.js',
-                dest: './backend/node/public/'/*'./backend/node/public/'*/
+                dest: './../node/public/'/*'./backend/node/public/'*/
             }
         ]
     }
