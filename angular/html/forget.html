@@ -1,0 +1,34 @@
+<div class="login clearfix">
+    <link rel='stylesheet' href='/css/login.css'/>
+    <div class="logo">
+        <a ng-link="['Signin']" class="btn">
+            <img src="/img/pages/logo.png" alt=""/>
+        </a>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN FORGOT PASSWORD FORM -->
+        <mg-form form-on-events="['input','submit']" form-data="model">
+
+            <form class="forget-form" action="" method="post">
+                <h3>Forget Password ?</h3>
+                <p> Enter your e-mail address below to reset your password. </p>
+                <div class="form-group">
+                    <div class="input-icon">
+                        <i class="fa fa-envelope"></i>
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off"
+                               placeholder="Email" name="email"/></div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="back-btn" class="btn grey-salsa btn-outline" ng-link="['Signin']"> Back
+                    </button>
+                    <button type="submit" class="btn green pull-right"> Submit</button>
+                </div>
+            </form>
+        </mg-form>
+        <!-- END FORGOT PASSWORD FORM -->
+        <!-- END REGISTRATION FORM -->
+    </div>
+    <!-- END LOGIN -->
+</div>

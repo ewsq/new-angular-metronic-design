@@ -1,0 +1,10 @@
+{
+  "directory": "./bower",
+  "save": true,
+  "interactive": true,
+  "scripts": {
+    "preinstall": "",
+    "postinstall": "",
+    "preuninstall": ""
+  }
+}

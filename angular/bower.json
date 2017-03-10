@@ -1,0 +1,15 @@
+{
+  "name": "ng-sopping",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "ngstorage": "ng-storage#^0.4.2",
+    "system.js": "^0.20.9",
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome-sass": "^4.7.0",
+    "simple-line-icons": "^2.4.1",
+    "angular-component-router": "^0.2.1",
+    "angular-route": "^1.6.2"
+  }
+}

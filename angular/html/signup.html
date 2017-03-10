@@ -1,0 +1,56 @@
+<div class="login clearfix">
+    <link rel='stylesheet' href='/css/login.css'/>
+    <div class="logo">
+        <a ng-link="['Signup']" class="btn">
+            <img src="/img/pages/logo.png" alt=""/>
+        </a>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN REGISTRATION FORM -->
+        <mg-form form-on-events="['input','submit']" form-data="model">
+            <form class="register-form" action="" method="post">
+                <h3>Sign Up</h3>
+                <form-content ng-repeat="(id, item) in model.fields">
+                    <p ng-if="item.description" ng-bind="item.description"></p>
+                    <div class="form-group">
+                        <label class="control-label visible-ie8 visible-ie9" ng-bind="model.label"></label>
+                        <div class="input-icon">
+                            <i ng-if="item.icon" class="{{item.icon}}"></i>
+                            <input ng-if="!item.input" class="form-control placeholder-no-fix" type="{{item.text}}"
+                                   autocomplete="off" placeholder="{{item.placeholder}}" name="{{item.name}}"/>
+                            <span ng-if="item.input === 'select'">
+                                <select class="form-control placeholder-no-fix"
+                                        name="{{item.name}}">
+                                    <option> Select a Country</option>
+                                    <option ng-if="item.options" ng-repeat="option in item.options"
+                                            ng-bind="option.name" value="{{option.code}}">
+
+                                    </option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </form-content>
+                <div class="form-group">
+                    <label class="mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox" name="tnc"/> I agree to the
+                        <a href="javascript:;">Terms of Service </a> &
+                        <a href="javascript:;">Privacy Policy </a>
+                        <span></span>
+                    </label>
+                    <div id="register_tnc_error"></div>
+                </div>
+                <div class="form-actions">
+                    <button id="register-back-btn" type="button" class="btn grey-salsa btn-outline"
+                            ng-link="['Signin']"> Back
+                    </button>
+                    <button type="submit" id="register-submit-btn" class="btn green pull-right"> Sign Up</button>
+                </div>
+            </form>
+        </mg-form>
+        <!-- END REGISTRATION FORM -->
+    </div>
+    <!-- END LOGIN -->
+</div>

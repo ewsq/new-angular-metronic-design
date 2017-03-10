@@ -1,0 +1,168 @@
+@import '../_variables';
+// global variables.
+@import '../components/_mixins'; // global mixings.
+
+/***
+Login page
+***/
+
+/* logo page */
+.login {
+  background-color: darken($general-panel-bg-color, 25%) !important;
+  height: 100vmax;
+
+  .logo {
+    margin: 60px auto 20px auto;
+    text-align: center;
+
+    @media (max-width: 480px) {
+      margin-top: 10px;
+    }
+  }
+  .content {
+    background-color: #fff;
+    width: 360px;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    @include border-radius(7px);
+
+    @media (max-width: 480px) {
+      width: 280px;
+    }
+    h3 {
+      color: #000;
+      @media (max-width: 480px) {
+        font-size: 22px;
+      }
+    }
+    h4 {
+      color: #555;
+    }
+    p {
+      color: #222;
+    }
+    .login-form, .forget-form {
+      padding: 0;
+      margin: 0;
+    }
+    .input-icon {
+      border-left: 2px solid #44B6AE !important;
+      @include border-radius($general-border-radius);
+
+      .form-control {
+        border-left: 0;
+      }
+    }
+    .has-error {
+      .input-icon {
+        border-left: 2px solid #ed6b75 !important;
+      }
+    }
+    .forget-form, .register-form {
+      .form-actions {
+        border: 0;
+        margin-bottom: 0;
+      }
+    }
+    .form-title {
+      font-weight: 300;
+      margin-bottom: 25px;
+    }
+    .form-actions {
+      background-color: #fff;
+      clear: both;
+      border: 0;
+      border-bottom: 1px solid #eee;
+      padding: 0 30px 25px 30px;
+      margin-left: -30px;
+      margin-right: -30px;
+
+      .rememberme {
+        margin-top: 8px;
+        display: inline-block;
+      }
+
+      .btn {
+        margin-top: 1px;
+      }
+
+    }
+    .forget-form {
+      .form-actions {
+        padding-bottom: 20px;
+      }
+    }
+    .register-form {
+      .form-actions {
+        padding-bottom: 0;
+      }
+    }
+    .forget-password {
+      margin-top: 25px;
+    }
+    .forget-password {
+      margin-top: 25px;
+    }
+    .create-account {
+      border-top: 1px dotted #eee;
+      padding-top: 10px;
+      margin-top: 15px;
+
+      a {
+        display: inline-block;
+        margin-top: 5px;
+      }
+    }
+    .select2-container {
+      border-left: 2px solid #44B6AE !important;
+
+      .select2-choice {
+        border-left: none !important;
+      }
+      i {
+        display: inline-block;
+        position: relative;
+        color: #ccc;
+        z-index: 1;
+        top: 1px;
+        margin: 4px 4px 0px -1px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        text-align: center;
+      }
+      a {
+        span {
+          font-size: 13px;
+
+          img {
+            margin-left: 4px;
+          }
+        }
+      }
+      .has-error {
+        .select2-container {
+          i {
+            color: #b94a48;
+          }
+        }
+      }
+    }
+  }
+  .checkbox {
+    @media (max-width: 480px) {
+      font-size: 13px;
+
+    }
+  }
+  .copyright {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    color: #999;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,71 @@
+<div class="login clearfix">
+    <link rel='stylesheet' href='/css/login.css'/>
+    <div class="logo">
+        <a ng-link="['Signin']" class="btn">
+            <img src="/img/pages/logo.png" alt=""/>
+        </a>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        <mg-form form-on-events="['input','submit']" form-data="model">
+            <form class="login-form" action="" name="form" method="post">
+                <h3 class="form-title">Login to your account</h3>
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    <span> Enter any username and password. </span>
+                </div>
+                <div class="form-group" ng-repeat="(id, item) in model.fields">
+                    <label class="control-label visible-ie8 visible-ie9" ng-bind="model.label"></label>
+                    <div class="input-icon">
+                        <i ng-if="item.icon" class="{{item.icon}}"></i>
+                        <input class="form-control placeholder-no-fix" type="{{item.text}}"
+                               autocomplete="off" placeholder="{{item.placeholder}}"
+                               name="{{item.name}}" ng-model="ngModel[item.name]"
+                               ng-disabled="item.disabled" ng-readonly="item.readonly"/>
+                        <!--<span ng-if="errors[item.name]" ng-repeat="error in item.name" ng-bind="error"></span>-->
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <label class="rememberme mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox" name="remember" value="1"/> Remember me
+                        <span></span>
+                    </label>
+                    <button type="submit" class="btn green pull-right"
+                            ng-disabled="!form.$dirty || form.$invalid"> Login
+                    </button>
+                </div>
+                <div class="login-options">
+                    <h4>Or login with</h4>
+                    <ul class="social-icons">
+                        <li>
+                            <a class="facebook" data-original-title="facebook" href="javascript:;"> </a>
+                        </li>
+                        <li>
+                            <a class="twitter" data-original-title="Twitter" href="javascript:;"> </a>
+                        </li>
+                        <li>
+                            <a class="googleplus" data-original-title="Goole Plus" href="javascript:;"> </a>
+                        </li>
+                        <li>
+                            <a class="linkedin" data-original-title="Linkedin" href="javascript:;"> </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="forget-password">
+                    <h4>Forgot your password ?</h4>
+                    <p> no worries, click
+                        <a ng-link="['Forget']" id="forget-password"> here </a> to reset your password. </p>
+                </div>
+                <div class="create-account">
+                    <p> Don't have an account yet ?&nbsp;
+                        <a ng-link="['Signup']" id="register-btn"> Create an account </a>
+                    </p>
+                </div>
+            </form>
+        </mg-form>
+        <!-- END LOGIN FORM -->
+    </div>
+    <!-- END LOGIN -->
+</div>
