@@ -5,8 +5,6 @@
 
 @import '_variables'; // theme level variables
 
-@import 'themes/default';
-
 @mixin reset-container() {    
   	> .container { 
     	width: 100%;
@@ -21,6 +19,8 @@
 @import 'layout/_content'; // page consnde          
 @import 'layout/_footer';   // page footer                              
 @import 'layout/_theme-panel';  // theme customizer panel
+
+@import 'themes/default';
 
 @import '../quick-sidebar/_quick-sidebar';  // quick sidebar content 
 @import '../quick-sidebar/_quick-nav';  // quick navigation  
