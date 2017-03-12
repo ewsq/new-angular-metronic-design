@@ -1,6 +1,6 @@
 /**
-Core script to handle the entire theme and core functions
-**/
+ Core script to handle the entire theme and core functions
+ **/
 
 var Layout = function () {
 
@@ -14,9 +14,9 @@ var Layout = function () {
     // this function handles responsive layout on screen size resize or mobile device rotate.
 
     // Handles header
-    var handleHeader = function () {        
+    var handleHeader = function () {
         // handle search box expand/collapse        
-        $('.page-header').on('click', '.search-form', function (e) {
+        $(document).on('click', '.page-header .search-form', function (e) {
             $(this).addClass("open");
             $(this).find('.form-control').focus();
 
@@ -27,7 +27,7 @@ var Layout = function () {
         });
 
         // handle hor menu search form on enter press
-        $('.page-header').on('keypress', '.hor-menu .search-form .form-control', function (e) {
+        $(document).on('keypress', '.page-header .hor-menu .search-form .form-control', function (e) {
             if (e.which == 13) {
                 $(this).closest('.search-form').submit();
                 return false;
@@ -35,28 +35,28 @@ var Layout = function () {
         });
 
         // handle header search button click
-        $('.page-header').on('mousedown', '.search-form.open .submit', function (e) {
+        $(document).on('mousedown', '.page-header .search-form.open .submit', function (e) {
             e.preventDefault();
             e.stopPropagation();
             $(this).closest('.search-form').submit();
         });
 
         // handle scrolling to top on responsive menu toggler click when header is fixed for mobile view
-        $('body').on('click', '.page-header-top-fixed .page-header-top .menu-toggler', function(){
+        $(document).on('click', '.page-header-top-fixed .page-header-top .menu-toggler', function () {
             App.scrollTop();
-        });     
+        });
     };
 
     // Handles main menu
     var handleMainMenu = function () {
 
         // handle menu toggler icon click
-        $(".page-header .menu-toggler").on("click", function(event) {
+        $(document).on("click", ".page-header .menu-toggler", function (event) {
             if (App.getViewPort().width < resBreakpointMd) {
                 var menu = $(".page-header .page-header-menu");
                 if (menu.is(":visible")) {
                     menu.slideUp(300);
-                } else {  
+                } else {
                     menu.slideDown(300);
                 }
 
@@ -67,7 +67,7 @@ var Layout = function () {
         });
 
         // handle sub dropdown menu click for mobile devices only
-        $(".hor-menu .menu-dropdown > a, .hor-menu .dropdown-submenu > a").on("click", function(e) {                
+        $(document).on("click", ".hor-menu .menu-dropdown > a, .hor-menu .dropdown-submenu > a", function (e) {
             if (App.getViewPort().width < resBreakpointMd) {
                 if ($(this).next().hasClass('dropdown-menu')) {
                     e.stopPropagation();
@@ -81,12 +81,12 @@ var Layout = function () {
         });
 
         // close main menu on final link click for mobile mode
-        $(".hor-menu li > a").on("click", function(e) {
+        $(document).on("click", ".hor-menu li > a", function (e) {
             if (App.getViewPort().width < resBreakpointMd) {
                 if (!$(this).parent('li').hasClass('classic-menu-dropdown') && !$(this).parent('li').hasClass('mega-menu-dropdown')
                     && !$(this).parent('li').hasClass('dropdown-submenu')) {
                     $(".page-header .page-header-menu").slideUp(300);
-                     App.scrollTop();
+                    App.scrollTop();
                 }
             }
         });
@@ -97,36 +97,36 @@ var Layout = function () {
         });
 
         // handle fixed mega menu(minimized) 
-        $(window).scroll(function() {                
+        $(window).scroll(function () {
             var offset = 75;
             if ($('body').hasClass('page-header-menu-fixed')) {
-                if ($(window).scrollTop() > offset){
+                if ($(window).scrollTop() > offset) {
                     $(".page-header-menu").addClass("fixed");
                 } else {
-                    $(".page-header-menu").removeClass("fixed");  
+                    $(".page-header-menu").removeClass("fixed");
                 }
             }
 
             if ($('body').hasClass('page-header-top-fixed')) {
-                if ($(window).scrollTop() > offset){
+                if ($(window).scrollTop() > offset) {
                     $(".page-header-top").addClass("fixed");
                 } else {
-                    $(".page-header-top").removeClass("fixed");  
+                    $(".page-header-top").removeClass("fixed");
                 }
             }
         });
     };
 
     // Handle sidebar menu links
-    var handleMainMenuActiveLink = function(mode, el, $state) {
-        var url = encodeURI(location.hash).toLowerCase();    
+    var handleMainMenuActiveLink = function (mode, el, $state) {
+        var url = encodeURI(location.hash).toLowerCase();
 
         var menu = $('.hor-menu');
 
         if (mode === 'click' || mode === 'set') {
             el = $(el);
         } else if (mode === 'match') {
-            menu.find("li > a").each(function() {
+            menu.find("li > a").each(function () {
                 var state = $(this).attr('ui-sref');
                 if ($state && state) {
                     if ($state.is(state)) {
@@ -155,9 +155,9 @@ var Layout = function () {
             el.attr('ui-sref') == 'javascript:;' ||
             el.attr('href') == '#' ||
             el.attr('ui-sref') == '#'
-            ) {
+        ) {
             return;
-        }      
+        }
 
         // disable active states
         menu.find('li.active').removeClass('active');
@@ -174,27 +174,27 @@ var Layout = function () {
     };
 
     // Handles main menu on window resize
-    var handleMainMenuOnResize = function() {
+    var handleMainMenuOnResize = function () {
         // handle hover dropdown menu for desktop devices only
         var width = App.getViewPort().width;
         var menu = $(".page-header-menu");
-            
-        if (width >= resBreakpointMd) { 
+
+        if (width >= resBreakpointMd) {
             $(".page-header-menu").css("display", "block");
         } else if (width < resBreakpointMd) {
-            $(".page-header-menu").css("display", "none"); 
-        } 
+            $(".page-header-menu").css("display", "none");
+        }
     };
 
-    var handleContentHeight = function() {
+    var handleContentHeight = function () {
         return;
         var height;
 
-        if ($('body').height() < App.getViewPort().height) {            
+        if ($('body').height() < App.getViewPort().height) {
             height = App.getViewPort().height -
-                $('.page-header').outerHeight() - 
+                $('.page-header').outerHeight() -
                 ($('.page-container').outerHeight() - $('.page-content').outerHeight()) -
-                $('.page-prefooter').outerHeight() - 
+                $('.page-prefooter').outerHeight() -
                 $('.page-footer').outerHeight();
 
             $('.page-content').css('min-height', height);
@@ -207,15 +207,15 @@ var Layout = function () {
         var duration = 500;
 
         if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {  // ios supported
-            $(window).bind("touchend touchcancel touchleave", function(e){
-               if ($(this).scrollTop() > offset) {
+            $(window).bind("touchend touchcancel touchleave", function (e) {
+                if ($(this).scrollTop() > offset) {
                     $('.scroll-to-top').fadeIn(duration);
                 } else {
                     $('.scroll-to-top').fadeOut(duration);
                 }
             });
         } else {  // general 
-            $(window).scroll(function() {
+            $(window).scroll(function () {
                 if ($(this).scrollTop() > offset) {
                     $('.scroll-to-top').fadeIn(duration);
                 } else {
@@ -223,8 +223,8 @@ var Layout = function () {
                 }
             });
         }
-        
-        $('.scroll-to-top').click(function(e) {
+
+        $(document).on('click', '.scroll-to-top', function (e) {
             e.preventDefault();
             $('html, body').animate({scrollTop: 0}, duration);
             return false;
@@ -234,43 +234,43 @@ var Layout = function () {
     //* END:CORE HANDLERS *//
 
     return {
-        
+
         // Main init methods to initialize the layout
         // IMPORTANT!!!: Do not modify the core handlers call order.
 
-        initHeader: function($state) {
+        initHeader: function ($state) {
             handleHeader(); // handles horizontal menu    
             handleMainMenu(); // handles menu toggle for mobile
             App.addResizeHandler(handleMainMenuOnResize); // handle main menu on window resize
 
-            if (App.isAngularJsApp()) {      
+            if (App.isAngularJsApp()) {
                 handleMainMenuActiveLink('match', null, $state); // init sidebar active links 
             }
         },
 
-        initContent: function() {
+        initContent: function () {
             handleContentHeight(); // handles content height 
         },
 
-        initFooter: function() {
+        initFooter: function () {
             handleGoTop(); //handles scroll to top functionality in the footer
         },
 
-        init: function () {            
+        init: function () {
             this.initHeader();
             this.initContent();
             this.initFooter();
         },
 
-        setMainMenuActiveLink: function(mode, el) {
+        setMainMenuActiveLink: function (mode, el) {
             handleMainMenuActiveLink(mode, el);
         },
 
-        setAngularJsMainMenuActiveLink: function(mode, el, $state) {
+        setAngularJsMainMenuActiveLink: function (mode, el, $state) {
             handleMainMenuActiveLink(mode, el, $state);
         },
 
-        closeMainMenu: function() {
+        closeMainMenu: function () {
             $('.hor-menu').find('li.open').removeClass('open');
 
             if (App.getViewPort().width < resBreakpointMd && $('.page-header-menu').is(":visible")) { // close the menu on mobile view while laoding a page 
@@ -278,19 +278,19 @@ var Layout = function () {
             }
         },
 
-        getLayoutImgPath: function() {
+        getLayoutImgPath: function () {
             return App.getAssetsPath() + layoutImgPath;
         },
 
-        getLayoutCssPath: function() {
+        getLayoutCssPath: function () {
             return App.getAssetsPath() + layoutCssPath;
         }
     };
 
 }();
 
-if (App.isAngularJsApp() === false) {
-    jQuery(document).ready(function() {   
-        Layout.init(); // init metronic core componets
-    });
-}
+// if (App.isAngularJsApp() === false) {
+jQuery(document).ready(function () {
+    Layout.init(); // init metronic core componets
+});
+// }
