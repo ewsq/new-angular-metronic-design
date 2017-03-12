@@ -2,7 +2,6 @@ import {Configs} from "./app/configs.js";
 import * as modules from "./app/modules.js";
 
 export class Bootstrap {
-
     /**
      * Application Bootstrap constructor
      *

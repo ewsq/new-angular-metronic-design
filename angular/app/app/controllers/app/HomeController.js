@@ -19,7 +19,7 @@ class HomeController extends NgController {
      * @return Array;
      * */
     get ctrlModules() {
-        return ['foo']
+        return []
     }
 
     /**
