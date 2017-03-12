@@ -60,7 +60,7 @@ var Layout = function () {
                     menu.slideDown(300);
                 }
 
-                if ($('body').hasClass('page-header-top-fixed')) {
+                if ($('body, app').hasClass('page-header-top-fixed')) {
                     App.scrollTop();
                 }
             }
@@ -99,7 +99,7 @@ var Layout = function () {
         // handle fixed mega menu(minimized) 
         $(window).scroll(function () {
             var offset = 75;
-            if ($('body').hasClass('page-header-menu-fixed')) {
+            if ($('body, app').hasClass('page-header-menu-fixed')) {
                 if ($(window).scrollTop() > offset) {
                     $(".page-header-menu").addClass("fixed");
                 } else {
@@ -107,7 +107,7 @@ var Layout = function () {
                 }
             }
 
-            if ($('body').hasClass('page-header-top-fixed')) {
+            if ($('body, app').hasClass('page-header-top-fixed')) {
                 if ($(window).scrollTop() > offset) {
                     $(".page-header-top").addClass("fixed");
                 } else {
@@ -190,7 +190,7 @@ var Layout = function () {
         return;
         var height;
 
-        if ($('body').height() < App.getViewPort().height) {
+        if ($('body, app').height() < App.getViewPort().height) {
             height = App.getViewPort().height -
                 $('.page-header').outerHeight() -
                 ($('.page-container').outerHeight() - $('.page-content').outerHeight()) -
