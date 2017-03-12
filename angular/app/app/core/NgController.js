@@ -53,6 +53,9 @@ class NgController extends NgObject {
 
         thisArgs.Socket.then((data) => {
             thisArgs.api = data.api;
+            data.api.on('connect', () => {
+                thisArgs.scope.apply(thisArgs, localArgs);
+            });
             thisArgs.scope.apply(thisArgs, localArgs);
         });
     }

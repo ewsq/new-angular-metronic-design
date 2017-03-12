@@ -96,7 +96,7 @@ class ApiPhpSocket {
 
     rpAppListener(socket, options, ac, d, cf, i)
     {
-        console.log('listened', socket.id);
+        console.log('listened', socket.id, 'on event', cf['action'], this.connectionId.length);
         if (socket.server.sockets.sockets[socket.id])
         {
             // console.log("ip: ", socket.request.connection.remoteAddress);

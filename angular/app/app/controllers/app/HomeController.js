@@ -29,7 +29,7 @@ class HomeController extends NgController {
     scope() {
         this.api.emit('api', {
             'type': 'get',
-            'params': '.home',
+            'params': 'home',
             'body': {
                 'a': 'ff'
             }
