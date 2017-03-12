@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+    <link rel='stylesheet' href='/stylesheets/component.css' />
+    <link rel='stylesheet' href='/stylesheets/plugins.css' />
+    <base href="/"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+<app>Loading...</app>
+<script src='/app/vendor/angular/angular.js'></script>
+<script src='/app/vendor/angular-component-router/angular_1_router.js'></script>
+<script src='/app/vendor/angular-component-router/ng_route_shim.js'></script>
+<script src='/system.js'></script>
+<script src='/system.config.js'></script>
+<script>
+    System.import(
+        './bootstrap.js'
+    ).then(function (b) {
+        new b.Bootstrap();
+    }, function (err) {
+        console.error(err);
+    });
+</script>
+</body>
+</html>

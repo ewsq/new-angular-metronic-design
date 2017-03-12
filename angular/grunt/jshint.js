@@ -1,6 +1,6 @@
 module.exports = {
-    app: ['Gruntfile.js', './grunt/**/*.js', './frontend/angular/**/*.js'],
-    sass:['./frontend/sass/**/*.scss'],
-    html: ['./frontend/html/**/*.html'],
-    vendor: ['./frontend/angular/bower/**/*.js']
+    app: ['Gruntfile.js', './grunt/**/*.js', './angular/app/**/*.js'],
+    sass:['./angular/sass/**/*.scss'],
+    html: ['./angular/html/**/*.html'],
+    vendor: ['./angular/bower/**/*.js']
 };

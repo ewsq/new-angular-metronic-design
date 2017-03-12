@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "npm run dev:build && npm run dev:watch & DEBUG=node:* npm start ",
-    "dev:build": "npm i && npm update",
+    "dev:build": "npm i && npm update & cd app/socket && npm i && npm update",
     "dev:watch": "npm -v"
   },
   "dependencies": {
@@ -15,6 +15,8 @@
     "ejs": "~2.5.5",
     "express": "~4.14.1",
     "morgan": "~1.7.0",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.8.5",
     "node-sass-middleware": "0.9.8",
     "serve-favicon": "~2.3.2"
   }

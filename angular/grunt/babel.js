@@ -10,7 +10,7 @@ module.exports = {
                 expand: true,
                 cwd: './app/',
                 src: '**/*.js',
-                dest: './../node/public/'/*'./backend/node/public/'*/
+                dest: './../express/public/'/*'./backend/node/public/'*/
             }
         ]
     }

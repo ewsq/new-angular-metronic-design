@@ -5,7 +5,7 @@ module.exports = {
                 expand: true,
                 flatten: true,
                 src: ['./html/**'],
-                dest: './../node/public/html/',
+                dest: './../express/public/html/',
                 filter: 'isFile'
             },
         ],
@@ -16,28 +16,28 @@ module.exports = {
                 expand: true,
                 cwd: './bower/',
                 src: ['**/*.js'],
-                dest: './../node/public/app/vendor/',
+                dest: './../express/public/app/vendor/',
                 filter: 'isFile'
             },
             {
                 expand: true,
                 cwd: './bower/',
                 src: ['**/*.woff2','**/*.woff','**/*.ttf'],
-                dest: './../node/public/fonts/',
+                dest: './../express/public/fonts/',
                 filter: 'isFile'
             },
             {
                 expand: true,
                 cwd: './img/',
                 src: ['**/*.*'],
-                dest: './../node/public/img/',
+                dest: './../express/public/img/',
                 filter: 'isFile'
             },
             {
                 expand: true,
                 cwd: './app/',
                 src: ['**/*.config.js'],
-                dest: './../node/public/',
+                dest: './../express/public/',
                 filter: 'isFile'
             }
         ]
