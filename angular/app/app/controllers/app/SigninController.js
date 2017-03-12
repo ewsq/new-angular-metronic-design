@@ -19,6 +19,7 @@ class SigninController extends NgController {
      * @return Array;
      * */
     scope() {
+        debugger
         this.$scope.model = this.SignInM;
         this.$scope.errors = {};
         this.$scope.ngModel = this.$scope.model.getData();

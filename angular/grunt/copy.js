@@ -36,7 +36,7 @@ module.exports = {
             {
                 expand: true,
                 cwd: './app/',
-                src: ['**/*.config.js'],
+                src: ['**/*.config'],
                 dest: './../express/public/',
                 filter: 'isFile'
             }

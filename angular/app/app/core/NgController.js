@@ -21,7 +21,7 @@ class NgController extends NgObject {
      * @return Array;
      * */
     get localModules() {
-        let localModules = ['$scope', '$http'];
+        let localModules = ['$scope', 'Socket', '$http'];
 
         return localModules.concat(this.ctrlModules);
     }
@@ -51,7 +51,10 @@ class NgController extends NgObject {
             thisArgs[el] = localArgs[id];
         });
 
-        thisArgs.scope.apply(thisArgs, localArgs);
+        thisArgs.Socket.then((data) => {
+            thisArgs.api = data.api;
+            thisArgs.scope.apply(thisArgs, localArgs);
+        });
     }
 }
 

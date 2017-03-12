@@ -10,7 +10,7 @@ $icon-font-path: '/fonts/bootstrap-sass/assets/fonts/bootstrap/';
 //** bootstrap font path default
 $simple-line-font-path: '/fonts/simple-line-icons/fonts/';
 
-@import 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,500,600,700&subset=all';
+@import '//fonts.googleapis.com/css?family=Open+Sans:400,300,500,600,700&subset=all';
 
 // Bootstrap
 @import "./../bower/bootstrap-sass/assets/stylesheets/bootstrap";

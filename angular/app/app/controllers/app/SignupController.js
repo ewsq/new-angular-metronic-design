@@ -19,6 +19,7 @@ class SignupController extends NgController {
      * @return Array;
      * */
     scope() {
+        debugger
         this.$scope.model = this.SignUpM;
     }
 

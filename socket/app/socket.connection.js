@@ -1,8 +1,8 @@
 let rp           = require('request-promise'),
-    certificates = require('../../app/certificates'),
+    certificates = require('../certificates'),
     https        = require('https'),
     io           = require('socket.io'),
-    APIPHP       = 'http://api-php.localhost',
+    APIPHP       = 'https://api-php.mobyportal.com/api',
     uuid         = require('node-uuid');
 class ApiPhpSocket {
     constructor()
@@ -30,6 +30,7 @@ class ApiPhpSocket {
 
     ioConnectionHandler(cf, i, socket)
     {
+        console.log('opened', socket.id, 'on event', cf['action']);
         this.connectionId.push(socket.id);
         socket.on(cf['action'], this.ioEventHandler.bind(this, socket, cf, i));
         socket.on(cf['action'] + '-close', this.ioOneConnectionDestroy.bind(this, socket, cf, i));
@@ -52,7 +53,7 @@ class ApiPhpSocket {
 
     ioOneConnectionDestroy(socket, cf, i, data)
     {
-        console.log('closed', socket.id);
+        console.log('closed', socket.id, 'on event', cf['action']);
         clearTimeout(this.intervalId[socket.id]);
         clearTimeout(this.timeoutId[socket.id]);
     }
@@ -124,7 +125,7 @@ class ApiPhpSocket {
 
     getParams()
     {
-        return rp('http://api-php.localhost/params').then(this.rpThen.bind(this)).catch(this.rpCatch.bind(this));
+        return rp(APIPHP + '/params').then(this.rpThen.bind(this)).catch(this.rpCatch.bind(this));
     }
 
     rpThen(data)
@@ -134,7 +135,7 @@ class ApiPhpSocket {
 
     rpCatch(err)
     {
-        // console.log(err);
+        console.log(err);
     }
 
     static run()

@@ -53,7 +53,7 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => [
+        /*'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
@@ -64,8 +64,32 @@ return [
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'prefer',
+        ],*/
+        'pgsql' => [
+            'driver'   => 'pgsql',
+            'host'     => env('PGSQL_DB_HOST', '127.0.0.1'),
+            'port'     => env('PGSQL_DB_PORT', '5432'),
+            'database' => env('PGSQL_DB_DATABASE', 'config'),
+            'username' => env('PGSQL_DB_USERNAME', 'postgres'),
+            'password' => env('PGSQL_DB_PASSWORD', 'masiv9393'),
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+            'sslmode'  => 'prefer',
         ],
 
+        'redis-5' => [
+            'host'     => env('REDIS_HOST', 'tcp://127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', 'masiv9393'),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 5,
+        ],
+        'redis-6' => [
+            'host'     => env('REDIS_HOST', 'tcp://127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', 'masiv9393'),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 6,
+        ],
     ],
 
     /*
@@ -94,13 +118,83 @@ return [
 
     'redis' => [
 
-        'client' => 'predis',
+        'cluster' => true,
 
         'default' => [
-            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
-            'port' => env('REDIS_PORT', 6379),
-            'database' => 0,
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 5,
+        ],
+
+        'r-6' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 6,
+        ],
+
+        'r-7' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 7,
+        ],
+
+        'r-8' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 8,
+        ],
+
+        'r-9' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 5,
+        ],
+
+        'r-10' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 10,
+        ],
+
+        'r-11' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 11,
+        ],
+
+        'r-12' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 12,
+        ],
+
+        'r-13' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 13,
+        ],
+
+        'r-14' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 14,
+        ],
+
+        'r-15' => [
+            'host'     => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port'     => env('REDIS_PORT', 6379),
+            'database' => 15,
         ],
 
     ],

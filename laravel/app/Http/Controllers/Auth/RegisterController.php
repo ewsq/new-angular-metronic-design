@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use JWTAuth;
 use App\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -28,6 +32,16 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return response()->json([]);
+    }
 
     /**
      * Create a new controller instance.
@@ -67,5 +81,33 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $credentials = $request->only('email', 'password');
+
+        try {
+            if (!$token = JWTAuth::attempt($credentials)) {
+                return response()->json(['error' => 'invalid_credentials'], 401);
+            }
+        } catch (JWTException $e) {
+            // something went wrong whilst attempting to encode the token
+            return response()->json(['error' => 'could_not_create_token'], 500);
+        }
+
+        $roleModels = new \App\Models\Role();
+
+        $uRole = $roleModels->where(['name' => 'user'])->first();
+
+        $user->attachRole($uRole->getKey());
+
+        $role = $user->roleUser;
+
+        return response()->json(compact('token', 'user', 'role'));
     }
 }

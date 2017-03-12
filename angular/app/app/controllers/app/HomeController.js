@@ -1,7 +1,6 @@
 import {NgController} from "./../../core/NgController.js";
 
 class HomeController extends NgController {
-
     /**
      * Angular Home controller constructor
      *
@@ -28,7 +27,13 @@ class HomeController extends NgController {
      * @return Array;
      * */
     scope() {
-        this.$scope.ctrl = this
+        this.api.emit('api', {
+            'type': 'get',
+            'params': '.home',
+            'body': {
+                'a': 'ff'
+            }
+        });
     }
 }
 

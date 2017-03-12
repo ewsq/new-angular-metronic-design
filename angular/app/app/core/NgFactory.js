@@ -51,7 +51,7 @@ class NgFactory extends NgObject {
      * @return Array;
      * */
     get localModules() {
-        return ['$rootScope']
+        return ['$rootScope', '$http']
     }
 
 }

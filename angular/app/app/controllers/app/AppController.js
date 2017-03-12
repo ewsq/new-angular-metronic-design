@@ -19,7 +19,6 @@ class AppController extends NgController {
      * @return Array;
      * */
     scope($scope, $http) {
-        $scope.ctrl = this;
     }
 }
 

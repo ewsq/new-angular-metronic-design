@@ -1,4 +1,8 @@
 module.exports = {
+    Gruntfile: {
+        files: ['<%= jshint.Gruntfile %>'],
+        tasks: ['watch']
+    },
     app: {
         files: ['<%= jshint.app %>'],
         tasks: ['babel:app']
@@ -9,7 +13,7 @@ module.exports = {
     },
     vendor: {
         files: ['<%= jshint.vendor %>'],
-        tasks: ['babel:vendor']
+        tasks: ['concat:vendor']
     },
     sass:{
         files: ['<%= jshint.sass %>'],

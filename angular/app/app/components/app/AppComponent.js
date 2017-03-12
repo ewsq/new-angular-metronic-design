@@ -1,5 +1,4 @@
 import {NgComponent} from "./../../core/NgComponent.js";
-
 class App extends NgComponent {
 
     /**
