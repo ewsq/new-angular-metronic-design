@@ -21,6 +21,13 @@ module.exports = {
             },
             {
                 expand: true,
+                cwd: './scripts/metronic/global/scripts/',
+                src: ['**/*.js'],
+                dest: './../express/public/scripts/',
+                filter: 'isFile'
+            },
+            {
+                expand: true,
                 cwd: './bower/',
                 src: ['**/*.woff2','**/*.woff','**/*.ttf'],
                 dest: './../express/public/fonts/',
